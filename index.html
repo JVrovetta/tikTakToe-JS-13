@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="./src/css/color.css">
+  <link rel="stylesheet" href="./src/css/style.css">
+  <script src="./src/js/index.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>Tic-Tac-Toe</h1>
+    <hr>
+  </header>
+  <main id="main">
+    <section id="players">
+      <div class="player-container player1 turn-player" data-turn="1" data-player="1">
+        <img src="./src/img/player1.png" alt="">
+        <input name="playerName" type="text" value="Player 1" maxlength="15">
+        <span class="turn" data-content="0">Your Turn</span>
+      </div>
+      <div class="player-container player2" data-turn="0" data-player="2">
+        <img src="./src/img/player2.png" alt="">
+        <input name="playerName" type="text" value="Player 2" maxlength="15">
+        <span class="turn" data-content="0"></span>
+      </div>
+    </section>
+    <section id="status">
+      <span class="winnerTitle">Result: </span>
+      <span class="winnerName">...</span>
+    </section>
+    <section id="gameBoard">
+      <button class="boardField enabled" data-x="0" data-y="0"></button>
+      <button class="boardField enabled" data-x="0" data-y="1"></button>
+      <button class="boardField enabled" data-x="0" data-y="2"></button>
+      <button class="boardField enabled" data-x="1" data-y="0"></button>
+      <button class="boardField enabled" data-x="1" data-y="1"></button>
+      <button class="boardField enabled" data-x="1" data-y="2"></button>
+      <button class="boardField enabled" data-x="2" data-y="0"></button>
+      <button class="boardField enabled" data-x="2" data-y="1"></button>
+      <button class="boardField enabled" data-x="2" data-y="2"></button>
+    </section>
+    <div id="resetDiv"></div>
+  </main>
+
+
+</body>
+
+</html>

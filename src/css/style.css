@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Bruno Ace SC', cursive;
+  font-weight: bold;
+  color: var(--font-color);
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+h1 {
+  font-size: 3rem;
+  height: 5rem;
+  line-height: 5rem;
+  text-align: center;
+}
+
+#main {
+  padding: 1rem;
+}
+
+/* Players */
+#players {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-container {
+  max-width: 300px;
+  display: grid;
+  gap: 0 0.65rem;
+  padding: 0.5rem;
+}
+
+.player-container img {
+  width: 100px;
+  grid-area: pIcon;
+}
+
+.player-container input {
+  grid-area: pName;
+  text-align: center;
+  font-size: 1rem;
+  height: 1.5rem;
+  width: 10rem;
+  border: 0;
+  background-color: transparent;
+  transition: .4s;
+}
+
+.player-container input:hover {
+  filter: brightness(2);
+}
+
+.player-container span {
+  text-align: center;
+  grid-area: pStatus;
+  height: 1.5rem;
+  width: 10rem;
+  line-height: 1.5rem;
+  transition: 1s;
+}
+
+.player-container span::after {
+  text-align: center;
+  position: absolute;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  background-color: var(--points-bg-color);
+}
+
+.player-container.turn-player img {
+  filter: brightness(1.2);
+}
+
+/* ------------------------------------------------------------------------ */
+
+/* Player 1 */
+.player-container.player1 {
+  grid-template-areas:
+    "pIcon ."
+    "pIcon pName"
+    "pIcon pStatus"
+    "pIcon .";
+  border-left: 4px solid var(--p1-color);
+}
+
+.player-container.player1 input {
+  border-bottom: 2px solid var(--p1-color);
+}
+
+.player-container.player1 span::after {
+  content: attr(data-content);
+  top: 110px;
+  left: 30px;
+}
+
+.player-container.player1.winner {
+  border-left: 4px solid var(--win-color);
+}
+
+/* ------------------------------------------------------------------------ */
+
+/* Player 2 */
+.player-container.player2 {
+  justify-items: end;
+  grid-template-areas:
+    ". pIcon"
+    "pName pIcon"
+    "pStatus pIcon"
+    ". pIcon";
+  border-right: 4px solid var(--p2-color);
+}
+
+.player-container.player2 input {
+  border-bottom: 2px solid var(--p2-color);
+}
+
+.player-container.player2 span::after {
+  content: attr(data-content);
+  top: 110px;
+  right: 30px;
+}
+
+.player-container.player2.winner {
+  border-right: 4px solid var(--win-color);
+}
+
+/* ------------------------------------------------------------------------ */
+
+/* Satatus */
+#status {
+  margin: 1rem auto;
+  text-align: center;
+}
+
+#status .winnerTitle {
+  font-size: 1.5rem;
+  color: var(--win-color);
+}
+
+#status .winnerName {
+  font-size: 1.5rem;
+  filter: brightness(1.2);
+}
+
+/* ------------------------------------------------------------------------ */
+
+/* Tabuleiro */
+#gameBoard {
+  display: grid;
+  max-width: 26rem;
+  grid-template-columns: 8rem 8rem 8rem;
+  grid-template-rows: 8rem 8rem 8rem;
+  gap: 1rem;
+  margin: 3rem auto;
+  background-color: var(--gameBoard-bg-color);
+}
+
+#gameBoard button {
+  background-color: var(--bg-color);
+  border: none;
+  transition: .4s;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100px 100px;
+}
+
+#gameBoard button.enabled:hover {
+  cursor: pointer;
+  filter: brightness(1.5);
+}
+
+#gameBoard button.marker1 {
+  background-image: url("../img/marker1.png");
+}
+
+#gameBoard button.marker2 {
+  background-image: url("../img/marker2.png");
+}
+
+#gameBoard button.highlights {
+  filter: brightness(2);
+}
+
+/* ------------------------------------------------------------------------ */
+
+/* Reset */
+#resetDiv {
+  width: fit-content;
+  margin: 2rem auto;
+}
+
+#resetDiv button {
+  width: 10rem;
+  height: 3rem;
+  font-size: 1rem;
+  border: 0;
+  border-radius: 3rem;
+  background-color: var(--button-bg-color);
+  transition: .4s;
+}
+
+#resetDiv button:hover {
+  letter-spacing: 0.12rem;
+  transform: scale(1.2);
+}
+
+/* ------------------------------------------------------------------------ */
